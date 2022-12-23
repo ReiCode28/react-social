@@ -18,10 +18,16 @@ import {
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
 
+//** Setting up Redux store with the redux-persist library for storing the application's state in the browsers local storage */
+
+//Defining configuration options for redux-persist
 const persistConfig = { key: "root", storage, version: 1 };
+//Wrapping authReducer in a call to persistReducer
 const persistedReducer = persistReducer(persistConfig, authReducer);
-const store = configureStore({
+//Creating a new store using configureStore
+const store = configureStore({ 
   reducer: persistReducer,
+  //Setting up middleware to ignore certain actions when checking for serializable state
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
