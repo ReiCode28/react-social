@@ -26,7 +26,7 @@ const persistConfig = { key: "root", storage, version: 1 };
 const persistedReducer = persistReducer(persistConfig, authReducer);
 //Creating a new store using configureStore
 const store = configureStore({ 
-  reducer: persistReducer,
+  reducer: persistedReducer,
   //Setting up middleware to ignore certain actions when checking for serializable state
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
