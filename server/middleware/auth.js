@@ -10,7 +10,7 @@ export const verifyToken = async (req, res, next) => {
 
         //makes sure token starts with bearer string 
         if (token.startsWith("Bearer ")) {
-            token = token.slice(7, token.length).trimleft();
+            token = token.slice(7, token.length).trimLeft();
         }
 
         //verifies token then passes in JWT secret string 
